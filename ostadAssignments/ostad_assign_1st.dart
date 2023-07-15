@@ -1,53 +1,66 @@
+
+///Ostad-Module No.1 Assignment
+
+// Question : Write a dart program that calculate
+//and assign grades to students based on their
+// predefined test scores. Each student will be 
+//identified by their name, 
+//and their test score will be constant 
+//and declared in the program.
+
+// The grading scale for the system remains the same:
+
+// A: 90 - 100
+// B: 80 - 89
+// C: 70 - 79
+// D: 60 - 69
+// F: 0 - 59
+// Your objective is to design a program that assigns grades to students based on their pre-defined test scores and displays the results.
+
+//Here's an example scenario:
+
+//Consider a student named "Saiaf Anan" 
+//who achieved a test score of 85. According 
+ // to the grading scale, a score of 85 falls 
+ // within the range of 80-89, which corresponds 
+ // to a grade of "B". Therefore, the program should
+ // output "Saiaf Anan's grade: B" for this particular case.
+
 void main() {
-  //marks of each subject
+ 
+  
+  
+  // creating map with student name and test score Name as key, the score is value
+  Map<String, int> studentTestScores = {
+    "Student1": 75,
+    "Student2": 82,
+    "Student3": 90,
+    "Student4": 68,
+    "Student5": 77
+  };
 
-  int english = 75;
-  int bengali = 82;
-  int math = 90;
-  int science = 68;
-  int history = 77;
+  // Usind Switch-case for getting the Result
+  studentTestScores.forEach((name, score) {
+    String grade;
+    switch (score ~/ 10) {
+      case 10:
+      case 9:
+        grade = 'A';
+        break;
+      case 8:
+        grade = "B";
+        break;
+      case 7:
+        grade = "C";
+        break;
+      case 6:
+        grade = "D";
+        break;
+      default:
+        grade = "F";
+    }
 
-  // Calculate and print grades for each subject
-
-  printGrade('English', english);
-
-  printGrade('Bengali', bengali);
-
-  printGrade('Math', math);
-
-  printGrade('Science', science);
-
-  printGrade('History', history);
-
-  // Calculate and print average mark
-
-  double averageMark = (english + bengali + math + science + history) / 5;
-
-  print('\nAverage Mark: $averageMark');
-
-  // Calculate and print total mark
-
-  int totalMark = english + bengali + math + science + history;
-
-  print('Total Mark: $totalMark');
-}
-
-//function to check subject grade
-
-void printGrade(String subject, int marks) {
-  String grade;
-
-  if (marks >= 80) {
-    grade = 'A+';
-  } else if (marks >= 70) {
-    grade = 'A';
-  } else if (marks >= 60) {
-    grade = 'B';
-  } else if (marks >= 50) {
-    grade = 'C';
-  } else {
-    grade = 'D';
-  }
-
-  print('$subject: $grade');
+    // printing the results
+    print("$name's grade: $grade");
+  });
 }
