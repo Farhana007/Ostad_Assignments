@@ -1,0 +1,25 @@
+//function to find the largest number in Integer list
+
+int findLargestNumber(List<int> numbers) {
+  if (numbers.isEmpty) {
+    print('List can nott be empty');
+  }
+
+//let's assume first number of the list is largest
+  int largestNumber = numbers[0];
+
+// let's run an loop and compare assumed largest number with rest of lis number
+
+  for (int i = 1; i < numbers.length; i++) {
+    if (numbers[i] > largestNumber) {
+      largestNumber = numbers[i];
+    }
+  }
+  return largestNumber;
+}
+
+void main() {
+  List<int> numberList = [21, 43, 12, 34, 34, 32, 90, 32];
+  int largestNumber = findLargestNumber(numberList);
+  print("Largest number in the list is : $largestNumber");
+}
