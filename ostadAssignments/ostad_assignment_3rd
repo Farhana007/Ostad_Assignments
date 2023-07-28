@@ -1,0 +1,42 @@
+//ostad 3rd module assignment
+
+Map<String, dynamic> listOperations(List<int> numbers) {
+  Map<String, dynamic> result = {
+    "sumEven": 0,
+    "largestOdd": -1,
+    "reversedList": [],
+  };
+
+  int sumEven = 0;
+  int largestOdd = -1;
+
+  for (int number in numbers) {
+    // Calculate the sum of even numbers
+    if (number % 2 == 0) {
+      sumEven += number;
+    }
+
+    // Determine the largest odd number
+    if (number % 2 == 1 && number > largestOdd) {
+      largestOdd = number;
+    }
+
+    // Prepare the reversed list
+    result["reversedList"].insert(0, number);
+  }
+
+  result["sumEven"] = sumEven;
+  result["largestOdd"] = (largestOdd != -1) ? largestOdd : null;
+
+  return result;
+}
+
+void main() {
+  List<int> numbers = [1, 5, 8, 12, 7, 6, 10, 3];
+
+  Map<String, dynamic> results = listOperations(numbers);
+
+  print("Sum of even numbers: ${results['sumEven']}");
+  print("Largest odd number: ${results['largestOdd']}");
+  print("Reversed list: ${results['reversedList']}");
+}
